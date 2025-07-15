@@ -5,9 +5,10 @@ import jwtPlugin from './plugins/jwt'
 export const app = Fastify()
 // Fastify({ logger: true }) traz o log de requisições e respostas no console.aa
 
-//Rregistro das rotas
-app.register(jwtPlugin)
+//Registro das rotas
+// app.register(jwtPlugin)
 // app.register(authRoutes)
+app.register(import('./routes/userRoutes'))
 
 app.get('/', async () => {
   return { message: 'Hello!' }

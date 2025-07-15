@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const registerSchema = z.object({
+export const registerUserSchema = z.object({
   email: z.email(),
   name: z.string().min(3).max(20),
   password: z.string().min(6),
@@ -11,5 +11,5 @@ export const loginSchema = z.object({
   password: z.string().min(6),
 })
 
-export type RegisterUserInput = z.infer<typeof registerSchema>;
+export type RegisterUserInput = z.infer<typeof registerUserSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
