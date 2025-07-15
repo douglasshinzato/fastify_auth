@@ -1,4 +1,4 @@
 import { PrismaClient } from '@prisma/client'
 
+// Instanciando o PrismaClient para interagir com o banco de dados.
 export const prisma = new PrismaClient()
-// use `prisma` in your application to read and write data in your DB
