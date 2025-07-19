@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 import jwtPlugin from './plugins/jwt'
+import userRoutes from './routes/userRoutes'
 // import { authRoutes } from './routes/authRoutes'
 
 export const app = Fastify()
@@ -8,7 +9,7 @@ export const app = Fastify()
 //Registro das rotas
 // app.register(jwtPlugin)
 // app.register(authRoutes)
-app.register(import('./routes/userRoutes'))
+app.register(userRoutes)
 
 app.get('/', async () => {
   return { message: 'Hello!' }

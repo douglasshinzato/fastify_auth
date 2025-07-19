@@ -1,6 +1,8 @@
+# Keep node_modules out of version control
 node_modules
+# Keep automaticly generated files out of version control
+generated
 # Keep environment variables out of version control
 .env
-
-TODO.md
-/generated/prisma
+# Keep notes and todos out of version control
+todo.md

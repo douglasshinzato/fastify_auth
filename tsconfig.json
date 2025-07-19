@@ -13,11 +13,7 @@
       "./types"
     ],
     "baseUrl": ".", // base da raiz do projeto
-    "paths": {
-      "@prisma/*": [
-        "./prisma/generated/client"
-      ]
-    }
+    "paths": {}
   },
   "include": [
     "src"
