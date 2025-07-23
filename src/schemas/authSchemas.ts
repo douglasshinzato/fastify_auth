@@ -7,3 +7,5 @@ export const loginSchema = z.object({
 })
 
 export type LoginInput = z.infer<typeof loginSchema>;
+
+// Nota: "login" está relacionado à autenticação, não à criação ou manipulação de dados de um usuário. Por isso ele não está no arquivo userSchemas.ts, que foca nas operações de registro e manipulação de usuários, não na autenticação.

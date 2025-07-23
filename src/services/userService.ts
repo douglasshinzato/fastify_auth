@@ -1,6 +1,6 @@
-import { prisma } from "src/lib/prisma";
-import { RegisterUserInput } from "src/schemas/userSchemas";
-import { hashPassword } from "src/utils/hashPassword";
+import { prisma } from "../lib/prisma";
+import { RegisterUserInput } from "../schemas/userSchemas";
+import { hashPassword } from "../utils/hashPassword";
 
 // RegisterUserInput é o tipo inferido do schema registerSchema
 export async function registerNewUser(data: RegisterUserInput) {
