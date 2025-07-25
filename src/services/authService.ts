@@ -19,5 +19,6 @@ export async function loginUser(data: LoginInput) { //tipo do parâmetro é Logi
   if (!isPasswordValid) {
     throw new Error("Credenciais inválidas");
   }
-  // return user
+  return user
+  // É necessario retornar o usuário após a validação bem-sucedida para que o controller possa gerar o token JWT.
 }
