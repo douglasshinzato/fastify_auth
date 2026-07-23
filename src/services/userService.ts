@@ -1,5 +1,5 @@
 import { prisma } from "../lib/prisma";
-import { RegisterUserInput } from "../schemas/userSchemas";
+import { RegisterUserInput, GetAllUsersInput } from "../schemas/userSchemas";
 import { hashPassword } from "../utils/hashPassword";
 
 // RegisterUserInput é o tipo inferido do schema registerSchema
@@ -25,4 +25,19 @@ export async function registerNewUser(data: RegisterUserInput) {
     name: newUser.name,
     email: newUser.email,
   }
+}
+
+export async function getAllUsers(data: GetAllUsersInput) {
+  const users = await prisma.user.findMany({
+    where: {
+      name: data.name,
+      email: data.email,
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+    },
+  });
+  return users;
 }
