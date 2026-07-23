@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { registerUserSchema } from "src/schemas/userSchemas";
-import * as userService from "src/services/userService";
+import { registerUserSchema, getAllUsersSchema } from "../schemas/userSchemas";
+import * as userService from "../services/userService";
 import { ZodError } from "zod";
 
 export async function registerNewUser(request: FastifyRequest, reply: FastifyReply) {
@@ -30,6 +30,18 @@ export async function registerNewUser(request: FastifyRequest, reply: FastifyRep
       // É melhor o 'send' não enviar o erro original, pois isso pode expor detalhes internos
     }
     //Aqui tratamos outros erros que podem ocorrer, como problemas de conexão com o banco de dados
+    return reply.status(500).send({
+      error: 'Erro interno do servidor',
+    })
+  }
+}
+
+export async function getAllUsers(request: FastifyRequest, reply: FastifyReply) {
+  try {
+    const data = getAllUsersSchema.parse(request.query);
+    const users = await userService.getAllUsers(data);
+    return reply.status(200).send(users);
+  } catch (error) {
     return reply.status(500).send({
       error: 'Erro interno do servidor',
     })
